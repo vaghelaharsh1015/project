@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  padding: 15px;
+  background-color: #fff;
+  width: 1200px;
+  border-radius: 25px;
+  box-shadow: 0 10px 6px #0000001a;
+  margin: 0 auto;
+}
+
+.mainh {
+  background-color: #fff;
+  border-radius: 25px;
+  box-shadow: 0 2px 6px #0000001a;
+  padding: 30px;
+}
+
+.text,
+.img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.text {
+  width: 70%;
+}
+
+.text h2 {
+  font-size: 2.5rem;
+}
+
+.text p {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.search {
+  display: inline-block;
+  margin-top: 10px;
+  width: 300px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px #0000001a;
+  padding: 5px 8px;
+}
+
+.search input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.search button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #a1a1a1;
+  font-size: 16px;
+}
+
+.img {
+  width: 28%;
+  text-align: right;
+}
+
+.main1 {
+  margin-top: 20px;
+}
+
+.text1,
+.selection {
+  display: inline-block;
+  vertical-align: middle;
+  width: 49%;
+}
+
+.text1 {
+  text-align: left;
+}
+
+.selection {
+  text-align: right;
+}
+
+.selection select {
+  border-radius: 5px;
+  box-shadow: 0 2px 6px #0000001a;
+  margin-left: 10px;
+}
+
+.products {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.box {
+  display: inline-block;
+  vertical-align: top;
+  width: 250px;
+  margin: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px #0000001a;
+  padding: 15px;
+  background: #fff;
+  text-align: center;
+}
+
+.box img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.box h5 {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.stars {
+  color: #f7c200;
+  margin: 8px 0;
+}
+
+.pricetag {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.pricetag del {
+  color: #888;
+  margin-left: 5px;
+}
+
+.btnone {
+  display: inline-block;
+  padding: 8px 15px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btnone:hover {
+  background: #218838;
+}
