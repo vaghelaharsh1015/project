@@ -20,8 +20,7 @@
   padding: 30px;
 }
 
-.text,
-.img {
+.text, .img {
   display: inline-block;
   vertical-align: middle;
 }
@@ -71,8 +70,7 @@
   margin-top: 20px;
 }
 
-.text1,
-.selection {
+.text1, .selection {
   display: inline-block;
   vertical-align: middle;
   width: 49%;
