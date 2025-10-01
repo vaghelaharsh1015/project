@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: black;
+}
+
+.main{
+    background-image: url(https://assets.nflxext.com/ffe/siteui/vlv3/bebd95d0-65f9-41a9-9d12-4794db63653e/web/IN-en-20250922-TRIFECTA-perspective_5e75cfb4-3797-4f17-866b-181ff91a51dd_large.jpg);
+    background-position: center center;
+    height: 80vh;
+    position: relative;
+}   
+.main .box{
+    height: 80vh;
+    width: 100%;
+    opacity: 0.54;
+    background-color: black;
+    position: absolute;
+    top: 0;
+}
+
+nav{
+    max-width: 60vw;
+    margin: auto;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 62px;
+}
+
+nav img{ 
+    color: red;
+    width: 154px;
+    position: relative;
+    z-index: 10;
+}
+
+nav button{
+    position: relative;
+    z-index: 10;
+}
+
+.hero{
+    font-family: "Martel Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    height: calc(100% - 62px);
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    gap: 23px;
+    padding: 0 30px;
+}
+
+.hero> :first-child{
+    font-weight: 900;
+    text-align: center;
+    font-size: 48px;
+}
+
+.hero> :nth-child(2){
+    font-weight: 400;
+    text-align: center;
+    font-size: 24px;
+}
+
+.hero> :nth-child(3){
+    text-align: center;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.btn{
+    padding: 3px 8px;
+    font-weight: 400;
+    background-color:rgba(rgb(248, 243, 219,0.021));
+    border-radius: 4px;
+    cursor: pointer;
+}
+.hero-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-red-sm{
+    background-color: red;
+    color:white ;
+}
+
+.btn-red{
+    background-color: red;
+    color:white;
+    padding: 3px 24px;
+    font-size: 20px;
+    border-radius: 4px;
+
+}
+
+.main input{
+    color: white;
+    font-size: 20px;
+    border-radius: 4px;
+    background-color: rgba(23, 23, 23, 0.2);
+}
+
+.line{
+    height: 5px;
+    background-color:grey;
+}
+
+.first{
+    background-color: aqua;
+}
+
+ h2 {
+      margin: 20px;
+      font-size: 24px;
+    }
+
+    /* Trending Carousel */
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    .trending {
+      display: flex;
+      gap: 15px;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .card {
+      position: relative;
+      min-width: 180px;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .card img {
+      width: 100%;
+      display: block;
+      border-radius: 6px;
+    }
+
+    .card .rank {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 60px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 2px 2px 5px black;
+    }
+
+    /* Carousel Arrows */
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.6);
+      border: none;
+      color: #fff;
+      font-size: 30px;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 50%;
+      z-index: 2;
+    }
+
+    .arrow.left {
+      left: 10px;
+    }
+
+    .arrow.right {
+      right: 10px;
+    }
+
+    /* Reasons Section */
+    .reasons {
+      margin-top: 40px;
+      padding: 0 20px 40px;
+      text-align: center;
+    }
+
+    .reason-cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .reason-card {
+      background: linear-gradient(145deg, #1a1a2e, #111);
+      border-radius: 12px;
+      padding: 20px;
+      width: 220px;
+      text-align: left;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease;
+    }
+
+    .reason-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .reason-card h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    .reason-card p {
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .reason-card span {
+      display: block;
+      margin-top: 15px;
+      font-size: 28px;
+    }
+
+    .faq{
+        background-color: aqua;
+    }
+
+    .faq{
+        background-color: black;
+        color: white;
+    }
+    .faqbox{
+        display: flex;
+        background-color: grey;
+        padding: 34px;
+    }
+
+    .faq h2{
+        text-align: center;
+    }
