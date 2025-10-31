@@ -1,0 +1,22 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: burlywood;
+}
+
+.head {
+  margin: 10px;
+  display: flex;
+  background-color: antiquewhite;
+  padding: 15px;
+  height: 38px;
+  display: flex;
+}
+
+.head > div {
+  font-size: 35px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
