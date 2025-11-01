@@ -139,27 +139,34 @@ nav a:hover {
   border-radius: 0 0 50% 50% / 0 0 100px 100px;
 }
 
-.categories h2 {
+.categories > h2 {
   text-align: center;
   font-size: 42px;
   color: #333;
   margin-bottom: 10px;
 }
 
-.categories p {
+.categories > p {
+  font-size: 25px;
   text-align: center;
   color: #666;
   margin-bottom: 50px;
 }
 
 .category-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 0px auto;
 }
 
+.category-card {
+  background: linear-gradient(135deg, #4a4a4a 0%, #2a2a2a 100%);
+  border-radius: 26px;
+  padding: 40px;
+}
+/* 
 .category-card {
   background: linear-gradient(135deg, #4a4a4a 0%, #2a2a2a 100%);
   border-radius: 25px;
@@ -194,4 +201,4 @@ nav a:hover {
 
 .view-more:hover {
   background: rgba(255, 255, 255, 0.3);
-}
+} */
