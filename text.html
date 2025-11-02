@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bean Scene - Freshly Roasted Coffee</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #4a3f3b;
+            color: #333;
+        }
+
+        header {
+            background-color: #e8d5c4;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #4a3f3b;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4a3f3b;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #8b6f47;
+        }
+
+        .search-icon {
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #4a3f3b 0%, #2d2520 100%);
+            padding: 80px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            color: #e8d5c4;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            display: block;
+            font-size: 20px;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        .buy-now-btn {
+            background-color: #fff;
+            color: #4a3f3b;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .coffee-beans {
+            position: absolute;
+            right: 100px;
+            top: 50px;
+            width: 300px;
+            height: 300px;
+        }
+
+        .coffee-cup {
+            position: absolute;
+            right: 150px;
+            top: 150px;
+            width: 200px;
+            height: 200px;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background-color: #e8d5c4;
+            clip-path: ellipse(100% 100% at 50% 100%);
+        }
+
+        .section {
+            background-color: #e8d5c4;
+            padding: 60px 50px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 32px;
+            color: #4a3f3b;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #6d5d52;
+            font-size: 14px;
+        }
+
+        .categories {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 80px;
+        }
+
+        .category-card {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), #4a3f3b;
+            border-radius: 20px;
+            width: 250px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .category-card h3 {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .view-more {
+            color: #e8d5c4;
+            font-size: 14px;
+            text-decoration: underline;
+        }
+
+        .products {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 80px;
+            overflow-x: auto;
+        }
+
+        .product-card {
+            background-color: #f5ebe0;
+            border-radius: 20px;
+            padding: 30px;
+            width: 220px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 120px;
+            height: 180px;
+            background-color: #d4c4b0;
+            margin: 0 auto 20px;
+            border-radius: 10px;
+        }
+
+        .product-card h3 {
+            color: #4a3f3b;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #4a3f3b;
+        }
+
+        .add-btn {
+            background-color: #4a3f3b;
+            color: #fff;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .blogs {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .blog-card {
+            background-color: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            width: 300px;
+            transition: transform 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background-color: #d4c4b0;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-content h3 {
+            color: #4a3f3b;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .blog-content p {
+            color: #6d5d52;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: #8b6f47;
+            font-size: 12px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #2d2520;
+            color: #e8d5c4;
+            padding: 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+            font-size: 13px;
+            color: #a89584;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #4a3f3b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #4a3f3b;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #a89584;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-bottom a {
+            color: #a89584;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <svg width="40" height="40" viewBox="0 0 40 40">
+                <circle cx="20" cy="20" r="18" fill="#8b6f47"/>
+                <path d="M15 25 Q20 20 25 25" stroke="#e8d5c4" stroke-width="2" fill="none"/>
+            </svg>
+            <span>Bean Scene</span>
+        </div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#blog">Blog</a>
+            <a href="#media">Media</a>
+            <a href="#contact">Contact</a>
+            <span class="search-icon">🔍</span>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                <span>FRESHLY ROASTED</span>
+                COFFEE
+            </h1>
+            <button class="buy-now-btn">Buy Now →</button>
+        </div>
+        <div class="wave"></div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">TOP CATEGORIES</h2>
+        <p class="section-subtitle">Explore The Recent Most Bought Drinks This Week</p>
+        
+        <div class="categories">
+            <div class="category-card">
+                <h3>Coffee Mocha</h3>
+                <span class="view-more">View More</span>
+            </div>
+            <div class="category-card">
+                <h3>Espresso Americano</h3>
+                <span class="view-more">View More</span>
+            </div>
+            <div class="category-card">
+                <h3>Cappuccino</h3>
+                <span class="view-more">View More</span>
+            </div>
+        </div>
+
+        <h2 class="section-title">TOP MILK SHAKES</h2>
+        <p class="section-subtitle">Explore The Recent Most Bought Shakes This Week</p>
+        
+        <div class="products">
+            <div class="product-card">
+                <div class="product-image"></div>
+                <h3>Mocha Shake</h3>
+                <div class="product-price">
+                    <span class="price">$20.90</span>
+                    <button class="add-btn">Add Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"></div>
+                <h3>Lavender Shake</h3>
+                <div class="product-price">
+                    <span class="price">$20.90</span>
+                    <button class="add-btn">Add Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"></div>
+                <h3>Caramel Shake</h3>
+                <div class="product-price">
+                    <span class="price">$20.90</span>
+                    <button class="add-btn">Add Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">LATEST BLOGS</h2>
+        <p class="section-subtitle">Explore The Recent Most Bought Blogs This Week</p>
+        
+        <div class="blogs">
+            <div class="blog-card">
+                <div class="blog-image"></div>
+                <div class="blog-content">
+                    <h3>Coffee Connoisseur</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <span class="read-more">Read More</span>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-image"></div>
+                <div class="blog-content">
+                    <h3>Coffee Connoisseur</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <span class="read-more">Read More</span>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-image"></div>
+                <div class="blog-content">
+                    <h3>Coffee Connoisseur</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <span class="read-more">Read More</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Products</h4>
+                <ul>
+                    <li>Beans</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Category</h4>
+                <ul>
+                    <li>Drinks</li>
+                    <li>Menu</li>
+                    <li>Today's Item</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company Info</h4>
+                <ul>
+                    <li>About us</li>
+                    <li>Contact us</li>
+                    <li>Payment Options</li>
+                    <li>Track Order</li>
+                    <li>Support</li>
+                    <li>Explore</li>
+                    <li>Elite Offers</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Follow us</h4>
+                <div class="social-icons">
+                    <div class="social-icon">f</div>
+                    <div class="social-icon">t</div>
+                    <div class="social-icon">in</div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>Data settings</span>
+            <span>Cookie settings</span>
+            <span>Privacy Policy</span>
+            <span>Terms And Conditions</span>
+            <span>English</span>
+        </div>
+    </footer>
+</body>
+</html>
