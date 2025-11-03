@@ -331,7 +331,6 @@ nav a:hover {
   display: flex;
   justify-content: center;
   gap: 30px;
-  flex-wrap: wrap;
 }
 
 .footer-bottom a {
@@ -343,4 +342,140 @@ nav a:hover {
 
 .footer-bottom a:hover {
   color: #fff;
+}
+
+@media (max-width: 1024px) {
+  .header {
+    padding: 20px 40px;
+  }
+  .hero {
+    padding: 70px 40px 120px;
+  }
+  .hero-content {
+    max-width: 1000px;
+  }
+  .hero-text h2 {
+    font-size: 60px;
+  }
+  .hero-image img {
+    max-width: 400px;
+  }
+  .categories {
+    padding: 90px 40px 70px;
+  }
+  .categories > h2,
+  .categories-of-milkshek > h2 {
+    font-size: 38px;
+  }
+  .categories > p,
+  .categories-of-milkshek > p {
+    font-size: 22px;
+  }
+  .category-grid {
+    max-width: 850px;
+    gap: 25px;
+  }
+  .card-section {
+    gap: 25px;
+  }
+  .card {
+    width: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 15px 30px;
+    flex-direction: column;
+    gap: 20px;
+  }
+  nav {
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero {
+    padding: 60px 30px 100px;
+  }
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+  .hero-text h2 {
+    font-size: 48px;
+  }
+  .hero-image {
+    justify-content: center;
+  }
+  .hero-image img {
+    max-width: 300px;
+    margin-top: 30px;
+  }
+  .categories {
+    padding: 80px 30px 60px;
+  }
+  .categories > h2,
+  .categories-of-milkshek > h2 {
+    font-size: 32px;
+  }
+  .categories > p,
+  .categories-of-milkshek > p {
+    font-size: 18px;
+  }
+  .category-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .card-section {
+    flex-direction: column;
+    padding: 0 20px 40px;
+  }
+  .card {
+    width: 100%;
+    max-width: 350px;
+  }
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  .footer-bottom {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding: 15px 25px;
+  }
+  nav {
+    gap: 18px;
+  }
+  .hero {
+    padding: 50px 25px 90px;
+  }
+  .hero-text h1 {
+    font-size: 24px;
+  }
+  .hero-text h2 {
+    font-size: 42px;
+  }
+  .hero-image img {
+    max-width: 280px;
+  }
+  .categories {
+    padding: 70px 25px 50px;
+  }
+  .categories > h2,
+  .categories-of-milkshek > h2 {
+    font-size: 30px;
+  }
+  .categories > p,
+  .categories-of-milkshek > p {
+    font-size: 17px;
+  }
+  .category-card {
+    padding: 35px 25px;
+    margin-bottom: 30px;
+  }
 }
