@@ -1,0 +1,40 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #fff;
+  padding: 20px 50px;
+  border-bottom: 1px solid #ddd;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+  font-size: 25px;
+  color: #333;
+}
+
+.nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+.nav a {
+  color: #333;
+  text-decoration: none;
+}
+
+.nav:hover {
+  color: orange;
+}
