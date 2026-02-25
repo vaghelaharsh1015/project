@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="quiz-wrapper">
+        <div class="welcome-container" id="welcomeContainer">
+            <h1>JS Master Quiz</h1>
+            <div class="rules-box">
+                <h3>Quiz Rules:</h3>
+                <ul>
+                    <li>Total time: 5 minutes.</li>
+                    <li>Background gets greener as you progress!</li>
+                    <li>No back-tracking allowed.</li>
+                </ul>
+            </div>
+            <button class="btn-start" id="startQuizBtn">Start Quiz Now</button>
+        </div>
+
+        <div class="quiz-container content-hide" id="quizContainer">
+            <div class="quiz-header-premium">
+                <div class="quiz-info">
+                    <span class="quiz-title">Quiz Progress</span>
+                    <div class="timer" id="timer">05:00</div>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="quiz-progress" id="progressBar"></div>
+                </div>
+            </div>
+
+            <div class="quiz-body" id="quizBody"></div>
+            
+            <div class="quiz-footer">
+                <div class="question-counter" id="questionCounter"></div>
+                <button class="btn-next" id="nextBtn" disabled>Next Question</button>
+            </div>
+        </div>
+
+        <div class="results-container content-hide" id="resultsContainer">
+            <h2>Results</h2>
+            <div class="results-score" id="finalScore"></div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-details">
+                <div class="result-row">Correct: <span id="correctCount"></span></div>
+                <div class="result-row">Time Taken: <span id="timeTaken"></span></div>
+            </div>
+            <button class="btn-restart" id="restartBtn">Try Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
