@@ -1,17 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
 
 :root {
-    --primary-color: #8b5cf6;
+  --primary-color: #8b5cf6;
   --light-bg: #f8fafc;
   --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: var(--light-bg);
-    padding-top: 80px;
+}
 .navbar {
-  background-color: var(--primary-color) !important;
+  background-color: #471181 !important;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   padding: 15px 0;
 }
@@ -38,6 +38,7 @@ body {
 
 /* Hero Section */
 .hero-section {
+  margin-top: 30px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   height: 400px;
   display: flex;
@@ -55,29 +56,32 @@ body {
   transition: all 0.3s ease;
   background: white;
   overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .btn-add-cart {
-    background: linear-gradient(135deg, var(--primary-color), #7c3aed);
-    color: white;
-    border-radius: 12px;
-    padding: 10px;
-    font-weight: 600;
-    border: none;
-    width: 100%;
-    transition: all 0.3s ease;
+  background: linear-gradient(135deg, var(--primary-color), #7c3aed);
+  color: white;
+  border-radius: 12px;
+  padding: 10px;
+  font-weight: 600;
+  border: none;
+  width: 100%;
+  transition: all 0.3s ease;
 }
 
 .btn-add-cart:hover {
-    background: linear-gradient(135deg, #7c3aed, var(--primary-color));
-    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
-    transform: translateY(-2px);
+  background: linear-gradient(135deg, #7c3aed, var(--primary-color));
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+  transform: translateY(-2px);
+}
 
 /* Filter Box */
 .filter-section {

@@ -13,6 +13,33 @@ const renderCart = () => {
   emptyDiv.style.display = "none";
   tableDiv.style.display = "block";
 
+  const updateCartSummary = () => {
+    const cart = getCart();
+    const summarySection = document.getElementById("cart-summary");
+    const subtotalEl = document.getElementById("subtotal");
+    const taxEl = document.getElementById("tax");
+    const totalEl = document.getElementById("total");
+
+    if (!summarySection) return;
+
+    if (cart.length === 0) {
+      summarySection.style.display = "none";
+      return;
+    }
+
+    summarySection.style.display = "block";
+
+    const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity,0,);
+
+    const tax = subtotal * 0.1;
+    const shipping = 5.0;
+    const grandTotal = subtotal + tax + shipping;
+
+    subtotalEl.innerText = `$${subtotal.toFixed(2)}`;
+    taxEl.innerText = `$${tax.toFixed(2)}`;
+    totalEl.innerText = `$${grandTotal.toFixed(2)}`;
+  };
+
   tableBody.innerHTML = cart
     .map(
       (item) => `
@@ -26,14 +53,7 @@ const renderCart = () => {
   `,
     )
     .join("");
-
-  updateTotal();
-};
-
-const updateTotal = () => {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  document.getElementById("cart-total").textContent = "$" + total.toFixed(2);
+  updateCartSummary();
 };
 
 window.removeItem = (id) => {

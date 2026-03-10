@@ -45,7 +45,11 @@ window.addToCart = (id) => {
 
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
-  alert("Product added to cart!");
+
+  // cahnge code to the pop up  // 
+
+
+  // alert("Product added to cart!");   
 };
 
 // 3. Function: Filter ane Search mate
