@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mojam API Dashboard</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; line-height: 1.6; }
+    section { border: 1px solid #ccc; padding: 15 dashed; margin-bottom: 20px; border-radius: 8px; padding: 15px; }
+    img { margin-top: 10px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+
+  <h1>🚀 Mojam API Dashboard</h1>
+
+  <section>
+    <h3>🐶 Random Dog Image</h3>
+    <button onclick="getDog()">Get New Dog</button><br>
+    <img id="dogImage" src="" alt="Dog will appear here" width="250">
+  </section>
+
+  <section>
+    <h3>🦠 COVID-19 Tracker</h3>
+    <input id="country" type="text" placeholder="Enter country (e.g. India)">
+    <button onclick="getCoronaData()">Get Stats</button>
+    <div id="coronaResult">
+      <p id="cases"></p>
+      <p id="deaths"></p>
+      <p id="recovered"></p>
+    </div>
+  </section>
+
+  <section>
+    <h3>🎬 Movie Finder</h3>
+    <input id="movieName" type="text" placeholder="Enter movie name">
+    <button onclick="getMovieData()">Search</button>
+    <div id="movieResult"></div>
+  </section>
+
+  <section>
+    <h3>☁️ Weather Report</h3>
+    <input id="cityName" type="text" placeholder="Enter city name">
+    <button onclick="getWeatherData()">Check Weather</button>
+    <div id="weatherResult"></div>
+  </section>
+
+  <script src="./script.js"></script>
+</body>
+</html>
