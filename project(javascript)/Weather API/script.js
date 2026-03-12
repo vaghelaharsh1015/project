@@ -1,7 +1,7 @@
-// 1. DOG API 
+// 1. DOG API
 async function getDog() {
   try {
-    const res = await fetch('https://dog.ceo/api/breeds/image/random');
+    const res = await fetch("https://dog.ceo/api/breeds/image/random");
     const data = await res.json();
     document.getElementById("dogImage").src = data.message;
   } catch (err) {
@@ -9,40 +9,45 @@ async function getDog() {
   }
 }
 
-//  2. COVID-19 API 
+//  2. COVID-19 API
 async function getCoronaData() {
   const country = document.getElementById("country").value;
   if (!country) return alert("Please enter a country name!");
 
   try {
-    const res = await fetch(`https://disease.sh/v3/covid-19/countries/${country.toLowerCase()}`);
+    const res = await fetch(
+      `https://disease.sh/v3/covid-19/countries/${country.toLowerCase()}`,
+    );
     const data = await res.json();
-    
+
     if (data.message) {
       alert("Country not found!");
     } else {
-      document.getElementById("cases").innerText = "Total Cases: " + data.cases.toLocaleString();
-      document.getElementById("deaths").innerText = "Total Deaths: " + data.deaths.toLocaleString();
-      document.getElementById("recovered").innerText = "Total Recovered: " + data.recovered.toLocaleString();
+      document.getElementById("cases").innerText =
+        "Total Cases: " + data.cases.toLocaleString();
+      document.getElementById("deaths").innerText =
+        "Total Deaths: " + data.deaths.toLocaleString();
+      document.getElementById("recovered").innerText =
+        "Total Recovered: " + data.recovered.toLocaleString();
     }
   } catch (err) {
     console.error("Corona API Error:", err);
   }
 }
 
-//  3. MOVIE API (OMDb) 
+//  3. MOVIE API (OMDb)
 async function getMovieData() {
   const movie = document.getElementById("movieName").value;
   if (!movie) return alert("Please enter a movie title!");
 
-  const apiKey = "63857d9d"; 
-  const url = `https://www.omdbapi.com/?t=${encodeURIComponent(movie)}&apikey=${apiKey}`;
-  
+  const apiKey = "7c0b9be";
+  const url = `http://www.omdbapi.com/?i=tt38 96198&apikey=7c0b9be`;
+
   try {
     const res = await fetch(url);
     const data = await res.json();
     const resultDiv = document.getElementById("movieResult");
-    
+
     if (data.Response === "True") {
       resultDiv.innerHTML = `
         <div style="background: #f4f4f4; padding: 15px; border-radius: 10px; margin-top: 10px;">
@@ -60,18 +65,18 @@ async function getMovieData() {
   }
 }
 
-//  4. WEATHER API (Fixed Free Version) 
+//  4. WEATHER API (Fixed Free Version)
 async function getWeatherData() {
   const city = document.getElementById("cityName").value;
-  if (!city) return alert("Please enter a city name!")
-  const apiKey = "8ac5c4d57ba6a47d33732ef4ba324ea6"; 
+  if (!city) return alert("Please enter a city name!");
+  const apiKey = "8ac5c4d57ba6a47d33732ef4ba324ea6";
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  
+
   try {
     const res = await fetch(url);
     const data = await res.json();
     const resultDiv = document.getElementById("weatherResult");
-    
+
     if (res.status === 401) {
       resultDiv.innerHTML = `<p style='color:orange;'>Your API key is still activating. Please wait 1-2 hours.</p>`;
     } else if (res.ok) {
