@@ -41,7 +41,7 @@ async function getMovieData() {
   if (!movie) return alert("Please enter a movie title!");
 
   const apiKey = "7c0b9be";
-  const url = `http://www.omdbapi.com/?i=tt38 96198&apikey=7c0b9be`;
+  const url = `http://www.omdbapi.com/?apikey=[yourkey]&`;
 
   try {
     const res = await fetch(url);
