@@ -356,14 +356,14 @@ document.addEventListener("DOMContentLoaded", function () {
       `;
     }
   }
-  // --- Elements ---
+  // Elements 
   const loginBtn = document.getElementById("btn-login-submit");
   const regBtn = document.getElementById("btn-reg-submit");
   const logoutBtn = document.getElementById("logout-btn");
   const loginModalBtn = document.getElementById("login-btn");
   const userDisplay = document.getElementById("username-display");
 
-  // --- Register Logic ---
+  // Register Logic 
   regBtn.addEventListener("click", function () {
     const u = document.getElementById("user-reg").value;
     const p = document.getElementById("pass-reg").value;
@@ -378,7 +378,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // --- Login Logic ---
+  // Login Logic 
   loginBtn.addEventListener("click", function () {
     const uIn = document.getElementById("user-in").value;
     const pIn = document.getElementById("pass-in").value;
@@ -396,7 +396,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // --- Check Login State on Page Load ---
+  // Check Login State on Page Load 
   function checkUser() {
     const isLogged = localStorage.getItem("isLogged");
     const activeUser = localStorage.getItem("activeUser");
@@ -409,7 +409,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   checkUser();
 
-  // --- Logout ---
+  // Logout 
   logoutBtn.addEventListener("click", function () {
     localStorage.removeItem("isLogged");
     localStorage.removeItem("activeUser");
