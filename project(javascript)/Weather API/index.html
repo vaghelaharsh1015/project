@@ -1,50 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mojam API Dashboard</title>
+  <title>Soft UI API Dashboard</title>
   <style>
-    body { font-family: sans-serif; padding: 20px; line-height: 1.6; }
-    section { border: 1px solid #ccc; padding: 15 dashed; margin-bottom: 20px; border-radius: 8px; padding: 15px; }
-    img { margin-top: 10px; border-radius: 5px; }
+    /* 1. બેકગ્રાઉન્ડ અને ફોન્ટ સેટિંગ્સ */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px 20px;
+      color: #2d3436;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 40px;
+      color: #ffffff;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 2. કાર્ડ કન્ટેનર */
+    .grid-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    /* 3. ગ્લાસ કાર્ડ ડિઝાઇન */
+    section {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 30px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s ease;
+    }
+
+    section:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #0984e3;
+    }
+
+    /* 4. સોફ્ટ ઇનપુટ અને બટન */
+    input {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      margin-bottom: 15px;
+      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05);
+      outline: none;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      background: #0984e3;
+      color: #fff;
+      border: none;
+      border-radius: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s;
+      box-shadow: 0 10px 20px rgba(9, 132, 227, 0.3);
+    }
+
+    button:hover {
+      background: #074b83;
+    }
+
+    /* 5. ડિસ્પ્લે એરિયા */
+    #dogImage {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 20px;
+      margin-top: 15px;
+    }
+
+    .info-box {
+      margin-top: 15px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 15px;
+      font-size: 0.95rem;
+    }
+
+    p {
+      margin: 8px 0;
+      font-weight: 500;
+    }
   </style>
 </head>
+
 <body>
 
-  <h1>Mojam API Dashboard</h1>
+  <h1>Glassy Dashboard</h1>
 
-  <section>
-    <h3>🐶 Random Dog Image</h3>
-    <button onclick="getDog()">Get New Dog</button><br>
-    <img id="dogImage" src="" alt="Dog will appear here" width="250">
-  </section>
+  <div class="grid-layout">
 
-  <section>
-    <h3>🦠 COVID-19 Tracker</h3>
-    <input id="country" type="text" placeholder="Enter country (e.g. India)">
-    <button onclick="getCoronaData()">Get Stats</button>
-    <div id="coronaResult">
-      <p id="cases"></p>
-      <p id="deaths"></p>
-      <p id="recovered"></p>
-    </div>
-  </section>
+    <section>
+      <h3>🐶 Puppy View</h3>
+      <button onclick="getDog()">New Image</button>
+      <img id="dogImage" src="https://images.dog.ceo/breeds/pinniped/n02524738_3641.jpg" alt="Dog">
+    </section>
 
-  <section>
-    <h3>🎬 Movie Finder</h3>
-    <input id="movieName" type="text" placeholder="Enter movie name">
-    <button onclick="getMovieData()">Search</button>
-    <div id="movieResult"></div>
-  </section>
+    <section>
+      <h3>📊 Virus Scan</h3>
+      <input id="country" type="text" placeholder="Type country name...">
+      <button onclick="getCoronaData()">Get Stats</button>
+      <div id="coronaResult" class="info-box">
+        <p id="cases">Cases: -</p>
+        <p id="deaths">Deaths: -</p>
+        <p id="recovered">Recovered: -</p>
+      </div>
+    </section>
 
-  <section>
-    <h3>☁️ Weather Report</h3>
-    <input id="cityName" type="text" placeholder="Enter city name">
-    <button onclick="getWeatherData()">Check Weather</button>
-    <div id="weatherResult"></div>
-  </section>
+    <section>
+      <h3>🎬 Movie Hub</h3>
+      <input id="movieName" type="text" placeholder="Movie title here...">
+      <button onclick="getMovieData()">Search</button>
+      <div id="movieResult" class="info-box">Find your favorite movie</div>
+    </section>
+
+    <section>
+      <h3>☀️ Weather Info</h3>
+      <input id="cityName" type="text" placeholder="City name...">
+      <button onclick="getWeatherData()">Check</button>
+      <div id="weatherResult" class="info-box">Atmosphere details</div>
+    </section>
+
+  </div>
 
   <script src="./script.js"></script>
 </body>
+
 </html>

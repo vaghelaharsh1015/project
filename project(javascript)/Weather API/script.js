@@ -35,13 +35,15 @@ async function getCoronaData() {
   }
 }
 
-//  3. MOVIE API (OMDb)
+//  3. MOVIE API
 async function getMovieData() {
   const movie = document.getElementById("movieName").value;
   if (!movie) return alert("Please enter a movie title!");
 
-  const apiKey = "7c0b9be";
-  const url = `http://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(movie)}`;
+  const apiKey = "4a3b711b"; // Demo key (limited requests)
+  const url = `https://www.omdbapi.com/?t=${encodeURIComponent(movie)}&apikey=${apiKey}`;
+
+  console.log(url);
 
   try {
     const res = await fetch(url);
@@ -50,7 +52,7 @@ async function getMovieData() {
 
     if (data.Response === "True") {
       resultDiv.innerHTML = `
-        <div style="background: #f4f4f4; padding: 15px; border-radius: 10px; margin-top: 10px;">
+        <div style="background: #f4f4f4; padding: 15px; border-radius: 10px; margin-top: 10px; color: #000;">
           <h4>${data.Title} (${data.Year})</h4>
           <p><b>Rating:</b> ${data.imdbRating}</p>
           <p><b>Plot:</b> ${data.Plot}</p>
@@ -62,22 +64,24 @@ async function getMovieData() {
     }
   } catch (err) {
     console.error("Movie API Error:", err);
+    document.getElementById("movieResult").innerHTML =
+      `<p style="color:red;">Error: Failed to fetch movie data</p>`;
   }
 }
 
-//  4. WEATHER API (Fixed Free Version)
+//  4. WEATHER API
 async function getWeatherData() {
-  var city = document.getElementById("cityName").value;
+  const city = document.getElementById("cityName").value;
   if (!city) {
     alert("Please enter a city name!");
     return;
   }
 
   try {
-    var geoRes = await fetch(
+    const geoRes = await fetch(
       `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1&language=en&format=json`,
     );
-    var geoData = await geoRes.json();
+    const geoData = await geoRes.json();
 
     if (!geoData.results || geoData.results.length === 0) {
       document.getElementById("weatherResult").innerHTML =
@@ -85,22 +89,21 @@ async function getWeatherData() {
       return;
     }
 
-    var latitude = geoData.results[0].latitude;
-    var longitude = geoData.results[0].longitude;
-    var name = geoData.results[0].name;
+    const latitude = geoData.results[0].latitude;
+    const longitude = geoData.results[0].longitude;
+    const name = geoData.results[0].name;
 
-    // Now fetch weather data using the coordinates
-    var weatherRes = await fetch(
+    const weatherRes = await fetch(
       `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m`,
     );
-    var weatherData = await weatherRes.json();
+    const weatherData = await weatherRes.json();
 
-    var resultDiv = document.getElementById("weatherResult");
+    const resultDiv = document.getElementById("weatherResult");
 
     if (weatherRes.ok) {
-      var temp = weatherData.current.temperature_2m;
-      var windSpeed = weatherData.current.wind_speed_10m;
-      var humidity = weatherData.hourly.relative_humidity_2m[0];
+      const temp = weatherData.current.temperature_2m;
+      const windSpeed = weatherData.current.wind_speed_10m;
+      const humidity = weatherData.hourly.relative_humidity_2m[0];
 
       resultDiv.innerHTML = `
         <div style="background: #e0f7fa; padding: 10px; border-radius: 10px; margin-top: 10px;">
