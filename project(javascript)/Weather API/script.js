@@ -40,11 +40,17 @@ async function getMovieData() {
   const movie = document.getElementById("movieName").value;
   if (!movie) return alert("Please enter a movie title!");
 
+<<<<<<< HEAD
   const apiKey = "4a3b711b"; // Demo key (limited requests)
   const url = `https://www.omdbapi.com/?t=${encodeURIComponent(movie)}&apikey=${apiKey}`;
 
   console.log(url);
 
+=======
+  const apiKey = "63857d9d"; 
+  const url = `https://jsonfakery.com/movies/paginated`;
+  
+>>>>>>> deb942631c181451d7ce938a6b4b2ab3c7b2f3a8
   try {
     const res = await fetch(url);
     const data = await res.json();
