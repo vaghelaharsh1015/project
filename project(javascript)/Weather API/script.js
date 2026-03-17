@@ -36,7 +36,7 @@ async function getMovieData() {
   if (!movie) return alert("Please enter a movie title!");
 
   const apiKey = "63857d9d"; 
-  const url = `https://www.omdbapi.com/?t=${encodeURIComponent(movie)}&apikey=${apiKey}`;
+  const url = `https://jsonfakery.com/movies/paginated`;
   
   try {
     const res = await fetch(url);
