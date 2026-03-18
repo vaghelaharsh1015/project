@@ -37,43 +37,48 @@ async function getCoronaData() {
 
 //  3. MOVIE API
 async function getMovieData() {
-  const movie = document.getElementById("movieName").value;
-  if (!movie) return alert("Please enter a movie title!");
-
-<<<<<<< HEAD
-  const apiKey = "4a3b711b"; // Demo key (limited requests)
-  const url = `https://www.omdbapi.com/?t=${encodeURIComponent(movie)}&apikey=${apiKey}`;
-
-  console.log(url);
-
-=======
-  const apiKey = "63857d9d"; 
-  const url = `https://jsonfakery.com/movies/paginated`;
-  
->>>>>>> deb942631c181451d7ce938a6b4b2ab3c7b2f3a8
-  try {
-    const res = await fetch(url);
+   try {
+    const res = await fetch("https://www.omdbapi.com/?t=${encodeURIComponent(movie)}&apikey=${apiKey}");
     const data = await res.json();
-    const resultDiv = document.getElementById("movieResult");
-
-    if (data.Response === "True") {
-      resultDiv.innerHTML = `
-        <div style="background: #f4f4f4; padding: 15px; border-radius: 10px; margin-top: 10px; color: #000;">
-          <h4>${data.Title} (${data.Year})</h4>
-          <p><b>Rating:</b> ${data.imdbRating}</p>
-          <p><b>Plot:</b> ${data.Plot}</p>
-          <img src="${data.Poster}" width="150" style="border-radius: 5px;">
-        </div>
-      `;
-    } else {
-      resultDiv.innerHTML = `<p style="color:red;">Error: ${data.Error}</p>`;
-    }
+    document.getElementById("dogImage").src = data.message;
   } catch (err) {
-    console.error("Movie API Error:", err);
-    document.getElementById("movieResult").innerHTML =
-      `<p style="color:red;">Error: Failed to fetch movie data</p>`;
+    console.error("Dog API Error:", err);
   }
 }
+  // const movie = document.getElementById("movieName").value;
+  // if (!movie) return alert("Please enter a movie title!");
+
+  // const apiKey = "4a3b711b"; // Demo key (limited requests)
+  // const url = `https://www.omdbapi.com/?t=${encodeURIComponent(movie)}&apikey=${apiKey}`;
+
+  // console.log(url);
+
+  // const apiKey = "63857d9d"; 
+  // const url = `https://jsonfakery.com/movies/paginated`;
+  
+  // try {
+  //   const res = await fetch(url);
+  //   const data = await res.json();
+  //   const resultDiv = document.getElementById("movieResult");
+
+  //   if (data.Response === "True") {
+  //     resultDiv.innerHTML = `
+  //       <div style="background: #f4f4f4; padding: 15px; border-radius: 10px; margin-top: 10px; color: #000;">
+  //         <h4>${data.Title} (${data.Year})</h4>
+  //         <p><b>Rating:</b> ${data.imdbRating}</p>
+  //         <p><b>Plot:</b> ${data.Plot}</p>
+  //         <img src="${data.Poster}" width="150" style="border-radius: 5px;">
+  //       </div>
+  //     `;
+  //   } else {
+  //     resultDiv.innerHTML = `<p style="color:red;">Error: ${data.Error}</p>`;
+  //   }
+  // } catch (err) {
+  //   console.error("Movie API Error:", err);
+  //   document.getElementById("movieResult").innerHTML =
+  //     `<p style="color:red;">Error: Failed to fetch movie data</p>`;
+  // }
+
 
 //  4. WEATHER API
 async function getWeatherData() {
