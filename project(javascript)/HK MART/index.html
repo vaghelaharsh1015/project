@@ -1,182 +1,267 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HK Mart | Best Online Shopping</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="asset/css/style.css">
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="asset/css/style.css" />
+  </head>
 
-<body>
-
+  <body>
     <!-- thise is navbar code  -->
     <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">HK <span>Mart</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                title="abc">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link px-3" href="index.html">Home</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link px-3 position-relative" href="./cart.html">Cart
-                            <span class="position-absolute top-0 start-90 translate-middle badge rounded-pill bg-danger"
-                                id="cart-count">0</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <span class="nav-link px-3" id="username-display">Guest</span>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn btn-outline-light ms-2" id="login-btn" data-bs-toggle="modal"
-                            data-bs-target="#loginModal">Login</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn btn-outline-light ms-2" id="logout-btn"
-                            style="display: none;">Logout</button>
-                    </li>
-                </ul>
-            </div>
+      <div class="container">
+        <div style="display: flex; align-items: center; gap: 10px">
         </div>
+        <a class="navbar-brand" href="index.html">HK <span>Mart</span></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          title="abc"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link px-3" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3 position-relative" href="./cart.html"
+                >Cart
+                <span
+                  class="position-absolute top-0 start-90 translate-middle badge rounded-pill bg-danger"
+                  id="cart-count"
+                  >0</span
+                >
+              </a>
+            </li>
+            <li class="nav-item">
+              <span class="nav-link px-3" id="username-display">Guest</span>
+            </li>
+            <li class="nav-item">
+              <button
+                class="btn btn-outline-light ms-2"
+                id="login-btn"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+              >
+                Login
+              </button>
+            </li>
+            <li class="nav-item">
+              <button
+                class="btn btn-outline-light ms-2"
+                id="logout-btn"
+                style="display: none"
+              >
+                Logout
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
 
     <!-- thise is header code  -->
     <header class="hero-section">
-        <div class="container">
-            <h1 class="display-3 fw-bold">Explore Premium Tech</h1>
-            <p class="lead">Get the best deals on HK Mart today.</p>
-        </div>
+      <div class="container">
+        <h1 class="display-3 fw-bold">Explore Premium Tech</h1>
+        <p class="lead">Get the best deals on HK Mart today.</p>
+      </div>
     </header>
 
     <!-- thse is product ,categorise and short by  code -->
     <div class="container mb-5">
-        <div class="filter-section">
-            <div class="row g-3">
-                <div class="col-md-6">
-                    <div class="input-group border rounded-pill overflow-hidden">
-                        <span class="input-group-text bg-white border-0"><i class="bi bi-search"></i></span>
-                        <input type="text" id="search-input" class="form-control border-0"
-                            placeholder="Search for items...">
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <select id="category-filter" class="form-select border-0 bg-light rounded-pill" title="abc">
-                        <option value="all">Categories</option>
-                        <option value="Electronics">Electronics</option>
-                        <option value="Accessories">Accessories</option>
-                        <option value="Books">Books</option>
-                        <option value="Clothing">Clothing</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <select id="sort-filter" class="form-select border-0 bg-light rounded-pill" title="abc">
-                        <option value="all">Sort By</option>
-                        <option value="price-low">Price: Low to High</option>
-                        <option value="price-high">Price: High to Low</option>
-                    </select>
-                </div>
+      <div class="filter-section">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="input-group border rounded-pill overflow-hidden">
+              <span class="input-group-text bg-white border-0"
+                ><i class="bi bi-search"></i
+              ></span>
+              <input
+                type="text"
+                id="search-input"
+                class="form-control border-0"
+                placeholder="Search for items..."
+              />
             </div>
+          </div>
+          <div class="col-md-3">
+            <select
+              id="category-filter"
+              class="form-select border-0 bg-light rounded-pill"
+              title="abc"
+            >
+              <option value="all">Categories</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Accessories">Accessories</option>
+              <option value="Books">Books</option>
+              <option value="Clothing">Clothing</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <select
+              id="sort-filter"
+              class="form-select border-0 bg-light rounded-pill"
+              title="abc"
+            >
+              <option value="all">Sort By</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+            </select>
+          </div>
         </div>
+      </div>
     </div>
 
     <main class="container mb-5">
-        <h2 class="fw-bold mb-4">Featured Products</h2>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="products_container">
-        </div>
+      <h2 class="fw-bold mb-4">Featured Products</h2>
+      <div
+        class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4"
+        id="products_container"
+      ></div>
     </main>
 
     <!-- that streted footer -->
     <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-4">Why Choose HK Mart?</h2>
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <i class="bi bi-truck display-4 text-primary mb-3"></i>
-                    <h5>Free Shipping</h5>
-                    <p>On orders over $50</p>
-                </div>
-                <div class="col-md-4">
-                    <i class="bi bi-shield-check display-4 text-primary mb-3"></i>
-                    <h5>Secure Payment</h5>
-                    <p>100% secure transactions</p>
-                </div>
-                <div class="col-md-4">
-                    <i class="bi bi-headset display-4 text-primary mb-3"></i>
-                    <h5>24*7 Support</h5>
-                    <p>Customer service anytime</p>
-                </div>
-            </div>
+      <div class="container">
+        <h2 class="text-center mb-4">Why Choose HK Mart?</h2>
+        <div class="row text-center">
+          <div class="col-md-4">
+            <i class="bi bi-truck display-4 text-primary mb-3"></i>
+            <h5>Free Shipping</h5>
+            <p>On orders over $50</p>
+          </div>
+          <div class="col-md-4">
+            <i class="bi bi-shield-check display-4 text-primary mb-3"></i>
+            <h5>Secure Payment</h5>
+            <p>100% secure transactions</p>
+          </div>
+          <div class="col-md-4">
+            <i class="bi bi-headset display-4 text-primary mb-3"></i>
+            <h5>24*7 Support</h5>
+            <p>Customer service anytime</p>
+          </div>
         </div>
+      </div>
     </section>
-
 
     <!-- login and register model -->
     <div class="modal fade" id="loginModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Login or Register</h5>
-                    <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" title="close"></button>
-                </div>
-                <div class="modal-body">
-                    <ul class="nav nav-tabs mb-3" id="authTab">
-                        <li class="nav-item">
-                            <button class="nav-link active" data-bs-toggle="tab"
-                                data-bs-target="#loginFormBox">Login</button>
-                        </li>
-                        <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#regFormBox">Register</button>
-                        </li>
-                    </ul>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Login or Register</h5>
+            <button
+              type="button"
+              class="btn-close bg-danger"
+              data-bs-dismiss="modal"
+              title="close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <ul class="nav nav-tabs mb-3" id="authTab">
+              <li class="nav-item">
+                <button
+                  class="nav-link active"
+                  data-bs-toggle="tab"
+                  data-bs-target="#loginFormBox"
+                >
+                  Login
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  class="nav-link"
+                  data-bs-toggle="tab"
+                  data-bs-target="#regFormBox"
+                >
+                  Register
+                </button>
+              </li>
+            </ul>
 
-                    <div class="tab-content">
-                        <div class="tab-pane fade show active" id="loginFormBox">
-                            <div class="mb-3">
-                                <label>Username</label>
-                                <input type="text" id="user-in" class="form-control" placeholder="Enter username">
-                            </div>
-                            <div class="mb-3">
-                                <label>Password</label>
-                                <input type="password" id="pass-in" class="form-control" placeholder="Enter password">
-                            </div>
-                            <button id="btn-login-submit" class="btn btn-primary w-100">Login</button>
-                        </div>
-
-                        <div class="tab-pane fade" id="regFormBox">
-                            <div class="mb-3">
-                                <label>New Username</label>
-                                <input type="text" id="user-reg" class="form-control" placeholder="Create username">
-                            </div>
-                            <div class="mb-3">
-                                <label>New Password</label>
-                                <input type="password" id="pass-reg" class="form-control" placeholder="Create password">
-                            </div>
-                            <button id="btn-reg-submit" class="btn btn-success w-100">Register</button>
-                        </div>
-                    </div>
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="loginFormBox">
+                <div class="mb-3">
+                  <label>Username</label>
+                  <input
+                    type="text"
+                    id="user-in"
+                    class="form-control"
+                    placeholder="Enter username"
+                  />
                 </div>
+                <div class="mb-3">
+                  <label>Password</label>
+                  <input
+                    type="password"
+                    id="pass-in"
+                    class="form-control"
+                    placeholder="Enter password"
+                  />
+                </div>
+                <button id="btn-login-submit" class="btn btn-primary w-100">
+                  Login
+                </button>
+              </div>
+
+              <div class="tab-pane fade" id="regFormBox">
+                <div class="mb-3">
+                  <label>New Username</label>
+                  <input
+                    type="text"
+                    id="user-reg"
+                    class="form-control"
+                    placeholder="Create username"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label>New Password</label>
+                  <input
+                    type="password"
+                    id="pass-reg"
+                    class="form-control"
+                    placeholder="Create password"
+                  />
+                </div>
+                <button id="btn-reg-submit" class="btn btn-success w-100">
+                  Register
+                </button>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="./js/script.mjs"></script>
 
     <footer class="bg-dark text-white text-center py-4 mt-5">
-        <div class="container">
-            <p>&copy; 2026 HK Mart. All rights reserved.</p>
-            <p>Follow us on social media</p>
-        </div>
+      <div class="container">
+        <p>&copy; 2026 HK Mart. All rights reserved.</p>
+        <p>Follow us on social media</p>
+      </div>
     </footer>
-</body>
-
+  </body>
 </html>
