@@ -1,39 +1,57 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const footer = () => {
- <footer className="bg-neutral-primary-soft rounded-base shadow-xs border border-default m-4">
-  <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-    <span className="text-sm text-body sm:text-center">
-      © 2023{" "}
-      <a href="https://flowbite.com/" className="hover:underline">
-        Flowbite™
-      </a>
-      . All Rights Reserved.
-    </span>
-    <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-body sm:mt-0">
-      <li>
-        <a href="#" className="hover:underline me-4 md:me-6">
-          About
-        </a>
-      </li>
-      <li>
-        <a href="#" className="hover:underline me-4 md:me-6">
-          Privacy Policy
-        </a>
-      </li>
-      <li>
-        <a href="#" className="hover:underline me-4 md:me-6">
-          Licensing
-        </a>
-      </li>
-      <li>
-        <a href="#" className="hover:underline">
-          Contact
-        </a>
-      </li>
-    </ul>
-  </div>
-</footer>
+const Footer = () => {
+  return (
+    <footer className="bg-gray-900 text-gray-300">
+      <div className="max-w-6xl mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          {/* Brand */}
+          <div>
+            <h3 className="text-2xl font-bold text-white mb-2">📝 BlogHub</h3>
+            <p className="text-sm">Share your knowledge and learn from others.</p>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/" className="hover:text-white transition">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog" className="hover:text-white transition">
+                  All Blogs
+                </Link>
+              </li>
+              <li>
+                <Link to="/addblog" className="hover:text-white transition">
+                  Create Blog
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-4">About</h4>
+            <p className="text-sm">
+              BlogHub is a platform for sharing and discovering amazing content about web development and technology.
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom */}
+        <div className="border-t border-gray-700 pt-8 text-center">
+          <p className="text-sm">
+            © 2024 BlogHub. All Rights Reserved. | Built with ❤️ using React & Tailwind CSS
+          </p>
+        </div>
+      </div>
+    </footer>
+  )
 }
 
-export default footer
+export default Footer

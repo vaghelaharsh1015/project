@@ -1,9 +1,10 @@
-import { useState } from "react";
-import home from "./pages/home";
-import addblog from "./pages/addblog";
-import blog from "./pages/blog";
-import blogdetails from "./pages/blogdetails";
-import navbar from "./componets/navbar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./componets/navbar";
+import Footer from "./componets/footer";
+import Home from "./pages/home";
+import Blog from "./pages/blog";
+import AddBlog from "./pages/addblog";
+import BlogDetails from "./pages/blogdetails";
 
 import "./App.css";
 
@@ -11,14 +12,16 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar>
-          <ROUTES>
+        <Navbar />
+        <main className="min-h-screen">
+          <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/addblog" element={<addblog />} />
-            <Route path="/blog" element={<blog />} />
-            <Route path="/blogdetails" element={<blogdetails />} />
-          </ROUTES>
-        </Navbar>
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/addblog" element={<AddBlog />} />
+            <Route path="/blogdetails" element={<BlogDetails />} />
+          </Routes>
+        </main>
+        <Footer />
       </BrowserRouter>
     </>
   );
