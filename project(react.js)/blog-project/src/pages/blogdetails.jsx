@@ -1,30 +1,22 @@
-import React, { useState, useEffect } from 'react'
 import { useSearchParams, useNavigate } from 'react-router-dom'
 
 const BlogDetails = () => {
   const [searchParams] = useSearchParams()
-  const [blog, setBlog] = useState(null)
-  const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
   const blogId = searchParams.get('id')
 
-  useEffect(() => {
-    if (!blogId) {
-      navigate('/blog')
-      return
-    }
+  if (!blogId) {
+    navigate('/blog')
+    return null
+  }
 
-    const savedBlogs = JSON.parse(localStorage.getItem('blogs')) || []
-    const foundBlog = savedBlogs.find(b => b.id === parseInt(blogId))
+  const blog = (JSON.parse(localStorage.getItem('blogs')) || []).find(b => b.id === parseInt(blogId))
 
-    if (foundBlog) {
-      setBlog(foundBlog)
-    } else {
-      alert('Blog not found!')
-      navigate('/blog')
-    }
-    setLoading(false)
-  }, [blogId, navigate])
+  if (!blog) {
+    alert('Blog not found!')
+    navigate('/blog')
+    return null
+  }
 
   const handleDelete = () => {
     if (window.confirm('Are you sure you want to delete this blog?')) {
@@ -34,14 +26,6 @@ const BlogDetails = () => {
       alert('Blog deleted successfully!')
       navigate('/blog')
     }
-  }
-
-  if (loading) {
-    return <div className="pt-20 text-center py-12">Loading...</div>
-  }
-
-  if (!blog) {
-    return <div className="pt-20 text-center py-12">Blog not found</div>
   }
 
   return (

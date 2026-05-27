@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import BlogCard from '../componets/blogcard'
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([])
-  const [filteredBlogs, setFilteredBlogs] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
   const [categoryFilter, setCategoryFilter] = useState('all')
   const navigate = useNavigate()
@@ -12,13 +11,11 @@ const Blog = () => {
   useEffect(() => {
     const savedBlogs = JSON.parse(localStorage.getItem('blogs')) || []
     setBlogs(savedBlogs)
-    setFilteredBlogs(savedBlogs)
   }, [])
 
-  useEffect(() => {
+  const filteredBlogs = useMemo(() => {
     let filtered = blogs
 
-    // Filter by search term
     if (searchTerm) {
       filtered = filtered.filter(blog =>
         blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -26,12 +23,11 @@ const Blog = () => {
       )
     }
 
-    // Filter by category
     if (categoryFilter !== 'all') {
       filtered = filtered.filter(blog => blog.category === categoryFilter)
     }
 
-    setFilteredBlogs(filtered)
+    return filtered
   }, [searchTerm, categoryFilter, blogs])
 
   const categories = ['all', ...new Set(blogs.map(blog => blog.category))]

@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import { useMemo } from 'react'
 import Hero from '../componets/hero'
 import BlogCard from '../componets/blogcard'
 
 const Home = () => {
-  const [blogs, setBlogs] = useState([])
-
-  useEffect(() => {
-    const savedBlogs = JSON.parse(localStorage.getItem('blogs')) || []
-    setBlogs(savedBlogs.slice(0, 3))
-  }, [])
+  const blogs = useMemo(() => {
+    return JSON.parse(localStorage.getItem('blogs')) || []
+  }, []).slice(0, 3)
 
   return (
     <div className="pt-20">
