@@ -1,0 +1,133 @@
+.testiSec {
+  position: relative;
+  padding: 60px 0;
+  background: linear-gradient(135deg, #f5f5f5 0%, #ebebeb 100%);
+  overflow: hidden;
+}
+
+.pawBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  pointer-events: none;
+}
+
+.pawBg span {
+  width: 100px;
+  height: 100px;
+  background: #26c0f0;
+  border-radius: 50%;
+  margin: 20px;
+}
+
+.testiContainer {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.testiIcon {
+  font-size: 48px;
+  color: #26c0f0;
+  margin-bottom: 24px;
+}
+
+.testiSlides {
+  position: relative;
+  min-height: 200px;
+}
+
+.tslide {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  padding: 0 20px;
+}
+
+.tslide.active {
+  opacity: 1;
+  position: relative;
+}
+
+.tslide blockquote {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.tslide cite {
+  font-size: 14px;
+  color: #26c0f0;
+  font-weight: 700;
+  display: block;
+  font-style: normal;
+}
+
+.testiArrows {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.testiArrows a {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #26c0f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #26c0f0;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 16px;
+}
+
+.testiArrows a:hover {
+  background: #26c0f0;
+  color: #fff;
+}
+
+.testiDots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.testiDots a {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+  display: inline-block;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.testiDots a.active {
+  background: #26c0f0;
+}
+
+@media (max-width: 576px) {
+  .testiSec {
+    padding: 40px 0;
+  }
+  .tslide blockquote {
+    font-size: 14px;
+  }
+}

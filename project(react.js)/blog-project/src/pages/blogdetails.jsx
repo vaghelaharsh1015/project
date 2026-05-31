@@ -11,7 +11,7 @@ const BlogDetails = () => {
   }
 
   const blog = (JSON.parse(localStorage.getItem('blogs')) || []).find(b => b.id === parseInt(blogId))
-
+  
   if (!blog) {
     alert('Blog not found!')
     navigate('/blog')

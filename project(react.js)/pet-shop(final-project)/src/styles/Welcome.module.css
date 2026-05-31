@@ -1,0 +1,107 @@
+.welcomeSection {
+  padding: 80px 0 60px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.welcomeTextCol {
+  padding-right: 40px;
+  text-align: center;
+}
+
+.welcomeTitle {
+  font-size: 36px;
+  font-weight: 800;
+  color: #2a2a2a;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.boneIcon {
+  color: #c8b96e;
+  font-size: 22px;
+  margin-bottom: 22px;
+  display: block;
+  text-align: center;
+}
+
+.welcomeDesc {
+  font-size: 14px;
+  color: #888;
+  line-height: 1.95;
+  max-width: 480px;
+  margin: 0 auto 36px auto;
+  text-align: center;
+}
+
+.welcomeDivider {
+  border: none;
+  border-top: 1px solid #e8e8e8;
+  margin-bottom: 40px;
+}
+
+.featureItem {
+  text-align: center;
+}
+
+.featureIconCircle {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #26c0f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  color: #26c0f0;
+  font-size: 28px;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+.featureItem:hover .featureIconCircle {
+  background: #26c0f0;
+  color: #fff;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(38, 192, 240, 0.3);
+}
+
+.featureLabel {
+  font-size: 15px;
+  font-weight: 700;
+  color: #2a2a2a;
+  margin-top: 4px;
+}
+
+.dogImg {
+  max-height: 480px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin-left: auto;
+}
+
+@media (max-width: 991px) {
+  .welcomeTextCol {
+    padding-right: 15px;
+    text-align: center;
+  }
+  .welcomeDesc {
+    margin: 0 auto 30px;
+  }
+  .dogImg {
+    max-height: 320px;
+  }
+}
+
+@media (max-width: 576px) {
+  .welcomeTitle {
+    font-size: 26px;
+  }
+  .dogImg {
+    max-height: 240px;
+  }
+}

@@ -1,0 +1,69 @@
+.featBand {
+  position: relative;
+  background: linear-gradient(135deg, #8dc63f 0%, #6fa632 100%);
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.dotAccent {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+}
+
+.dot1 {
+  width: 200px;
+  height: 200px;
+  background: #fff;
+  top: -50px;
+  left: -50px;
+}
+
+.dot2 {
+  width: 250px;
+  height: 250px;
+  background: #fff;
+  bottom: -80px;
+  right: 10%;
+}
+
+.dot3 {
+  width: 150px;
+  height: 150px;
+  background: #fff;
+  top: 50%;
+  right: -40px;
+}
+
+.featItem {
+  text-align: center;
+  color: #fff;
+}
+
+.featIcon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.featItem h5 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.featItem p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+@media (max-width: 768px) {
+  .featBand {
+    padding: 40px 0;
+  }
+  
+  .featIcon {
+    font-size: 40px;
+  }
+}

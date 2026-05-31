@@ -13,7 +13,7 @@ const AddBlog = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target
-    setFormData(prev => ({
+    setFormData(prev => ({  
       ...prev,
       [name]: value
     }))
@@ -41,7 +41,7 @@ const AddBlog = () => {
 
     setLoading(false)
     alert('Blog added successfully!')
-    navigate('/blog')
+    navigate('/blog') 
   }
 
   return (
