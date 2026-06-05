@@ -135,6 +135,7 @@ export default function Home() {
       </section>
 
       {/* What We Do Section */}
+      
       <section
         className="bg-[#8cc63f] text-white pt-16 pb-24 relative overflow-hidden bg-cover bg-center"
         style={{
