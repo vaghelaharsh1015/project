@@ -92,14 +92,13 @@ async function getCoronaData() {
 }
 
 async function getMovieData() {
-<<<<<<< HEAD
    try {
     const res = await fetch("https://www.omdbapi.com/?t=${encodeURIComponent(movie)}&apikey=${apiKey}");
     const data = await res.json();
     document.getElementById("dogImage").src = data.message;
   } catch (err) {
     console.error("Dog API Error:", err);
-=======
+
   try {
     const randomMovie =
       CONFIG.movie_list[Math.floor(Math.random() * CONFIG.movie_list.length)];
@@ -123,7 +122,6 @@ async function getMovieData() {
   } catch (err) {
     console.error("Movie API Error:", err);
     ELEMENTS.movie.result.innerHTML = `<p style="color:red;">Failed to fetch movie data.</p>`;
->>>>>>> 5e2c2364eb65ddf74609ce7c4bc921a9b224687b
   }
 }
   // const movie = document.getElementById("movieName").value;

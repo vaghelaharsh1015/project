@@ -1,15 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import Header from './components/Header';
-import Header from '../components/Header'
-import Footer from '../components/Footer';
-import Home from '../pages/Home';
-import About from '../pages/About';
-import Shop from '../pages/Shop';
-import ProductDetails from '../pages/ProductDetails';
-import Blog from '../pages/Blog';
-import BlogDetails from '../pages/BlogDetails';
-import Contact from '../pages/Contact';
+// import Header from '../components/Header'
+import Header from '../src/components/Header';
+import Footer from '../src/components/Footer';
+import Home from '../src/pages/Home';
+import About from '../src/pages/About';
+import Shop from '../src/pages/Shop';
+import ProductDetails from '../src/pages/ProductDetails';
+import Blog from '../src/pages/Blog';
+import BlogDetails from '../src/pages/BlogDetails';
+import Contact from '../src/pages/Contact';
 
 function App() {
   return (
