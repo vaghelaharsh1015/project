@@ -16,7 +16,7 @@ export default function BlogDetails() {
   return (
     <div className="animate-fadeIn max-w-4xl mx-auto px-4 py-12">
       <div className="text-xs text-brand-muted mb-4">
-        <Link to="/" className="hover:text-brand-primary">Home</Link> &gt; <Link to="/blog" className="hover:text-brand-primary">Blog</Link> &gt; Details
+        <Link to="/" className="hover:text-brand-primary">Home</Link> &gt; <Link to="/blog" className="hover:text-brand-primary">Blog</Link>  Details
       </div>
 
       <header className="mb-6">

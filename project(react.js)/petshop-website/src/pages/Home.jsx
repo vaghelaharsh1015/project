@@ -63,7 +63,7 @@ export default function Home() {
     <div className="bg-white">
       <Hero />
 
-      {/* --- SECTION 1: WELCOME TO PETTY --- */}
+      {/* Welcome Section */}
       <section className="bg-[#f5f5f5] py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 items-center gap-16">
@@ -125,7 +125,7 @@ export default function Home() {
             {/* Right Image */}
             <div className="flex justify-center">
               <img
-                src="/dog.png"
+                src=" "
                 alt="Dog"
                 className="w-full max-w-md object-contain"
               />
@@ -134,7 +134,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- SECTION 2: WHAT WE DO (SAME TO SAME AS IMAGE_DE8CA6.JPG) --- */}
+      {/* What We Do Section */}
       <section
         className="bg-[#8cc63f] text-white pt-16 pb-24 relative overflow-hidden bg-cover bg-center"
         style={{
@@ -153,7 +153,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* 2x2 Grid for Horizontal Layout Cards */}
+          {/* Services Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Card 1: Pet Adoption */}
             <div className="bg-white text-gray-800 flex flex-col sm:flex-row shadow-sm overflow-hidden h-full">
@@ -256,7 +256,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- SECTION 3: PETTY SHOP (SAME TO SAME AS IMAGE_DE2AA8.PNG) --- */}
+      {/* Petty Shop Section */}
       <section className="py-16 max-w-7xl mx-auto px-4 md:px-8 bg-white">
         {/* Title & Subtitle */}
         <div className="text-center space-y-2 mb-10">
@@ -295,7 +295,7 @@ export default function Home() {
           ))}
         </div>
 
-        {/* 4-Column Products Grid (8 Items exactly like image) */}
+        {/* Products Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 mb-12">
           {[
             {
@@ -426,7 +426,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- SECTION 4: OUR GALLERY (SAME TO SAME AS IMAGE_DDAB6C.JPG) --- */}
+      {/* Gallery Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           {/* Header with Title and Bone Icon */}
@@ -439,7 +439,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Custom Asymmetric Layout Grid matching the image perfectly */}
+          {/* Masonry Layout Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
             {/* Column 1: Left Big Vertical Image (Girl with puppy) */}
             <div className="h-[460px] overflow-hidden shadow-sm">
@@ -493,7 +493,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- SECTION 5: TESTIMONIALS SLIDER (100% WORKING SLIDER) --- */}
+      {/* Testimonials Slider */}
       {(() => {
         const slides = [
           {
@@ -593,7 +593,7 @@ export default function Home() {
         
       })()}
 
-      {/* --- SECTION 6: OUR BLOG (SAME TO SAME AS IMAGE_D3A37B.JPG) --- */}
+      {/* Blog Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           
@@ -686,32 +686,6 @@ export default function Home() {
             </div>
 
           </div>
-        </div>
-      </section>
-
-      {/* --- SECTION 7: GET 50% OFFER WAVY BANNER --- */}
-      <section className="bg-[#00b2ff] text-white pt-10 pb-12 relative overflow-hidden">
-        
-        {/* Top Wave Divider Mask Layout */}
-        <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] transform rotate-180">
-          <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[25px] fill-white">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C26.9,4.75,55.05,12.72,83.1,19.34,143.21,33.55,203.11,43.08,321.39,56.44Z"></path>
-          </svg>
-        </div>
-
-        {/* Content Container Grid */}
-        <div className="max-w-6xl mx-auto px-6 relative z-10 flex flex-col md:flex-row justify-between items-center gap-6 mt-4">
-          
-          {/* Offer Title Text */}
-          <h2 className="text-white text-2xl md:text-3xl font-extrabold tracking-wide uppercase text-center md:text-left">
-            Get 50% offer for all pet products
-          </h2>
-
-          {/* Dotted Border Coupon Code Container Box */}
-          <div className="border-2 border-dashed border-white/60 bg-white/10 px-8 py-3 rounded-full text-xs font-bold tracking-widest text-white uppercase whitespace-nowrap shadow-xs">
-            Coupon Code : <span className="text-yellow-200 font-black">Petty1234</span>
-          </div>
-
         </div>
       </section>
     </div>
