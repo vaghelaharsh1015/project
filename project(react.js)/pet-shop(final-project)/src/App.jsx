@@ -4,6 +4,8 @@ import Home from './pages/Home';
 import ShopPage from './pages/ShopPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import './styles/blog.module.css';
+
 
 function App() {
   return (
