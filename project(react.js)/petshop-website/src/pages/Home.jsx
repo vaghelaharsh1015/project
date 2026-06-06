@@ -64,7 +64,7 @@ export default function Home() {
       <Hero />
 
       {/* Welcome Section */}
-      <section className="bg-[#f5f5f5] py-20">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 items-center gap-16">
             {/* Left Content */}
@@ -125,7 +125,7 @@ export default function Home() {
             {/* Right Image */}
             <div className="flex justify-center">
               <img
-                src=" "
+                src="https://htmlbeans.com/html/petshop/images/img02.jpg "
                 alt="Dog"
                 className="w-full max-w-md object-contain"
               />
