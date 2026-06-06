@@ -3,13 +3,13 @@
 using namespace std;
 
 class Bank {
-    // Private variables (Data Hiding)
+    // Account details
     int acno;
     string name;
     float bal;
 
 public:
-    // Account open karva mate function
+    // Function to open a new account
     void openAccount() {
         cout << "Enter Account No: ";
         cin >> acno;
@@ -20,7 +20,7 @@ public:
         cout << "Account Created Successfully!\n";
     }
 
-    // Paisa jama karva mate
+    // Function to deposit money
     void deposit() {
         float amount;
         cout << "Enter Amount to Deposit: ";
@@ -29,7 +29,7 @@ public:
         cout << "Deposit Successful! New Balance: " << bal << "\n";
     }
 
-    // Paisa upadva mate
+    // Function to withdraw money
     void withdraw() {
         float amount;
         cout << "Enter Amount to Withdraw: ";
@@ -42,7 +42,7 @@ public:
         }
     }
 
-    // Account ni details jova mate
+    // Display account details
     void showAccount() {
         cout << "\nAccount No: " << acno;
         cout << "\nName: " << name;
@@ -57,10 +57,9 @@ public:
 };
 
 int main() {
-    // Array of Objects banavyo che (Max 10 accounts)
-    Bank b[10]; 
+    Bank b[10]; // Array to store up to 10 accounts
     int choice;
-    int total = 0; // Ketla account banya che e count karva mate
+    int total = 0; // Keeps track of total accounts created
     int searchAcno;
     bool found;
 
@@ -78,7 +77,7 @@ int main() {
             case 1:
                 if(total < 10) {
                     b[total].openAccount();
-                    total++; // Account count vadharo
+                    total++; 
                 } else {
                     cout << "Bank is Full! Cannot open more accounts.\n";
                 }
@@ -88,6 +87,8 @@ int main() {
                 cout << "Enter Account No to Deposit: ";
                 cin >> searchAcno;
                 found = false;
+                
+                // Search for the account
                 for(int i=0; i<total; i++) {
                     if(b[i].getAcno() == searchAcno) {
                         b[i].deposit();
@@ -102,6 +103,8 @@ int main() {
                 cout << "Enter Account No to Withdraw: ";
                 cin >> searchAcno;
                 found = false;
+                
+                // Search for the account
                 for(int i=0; i<total; i++) {
                     if(b[i].getAcno() == searchAcno) {
                         b[i].withdraw();
@@ -113,7 +116,7 @@ int main() {
                 break;
 
             case 4:
-                // Badha account loop feravine batavse
+                // Show all created accounts
                 for(int i=0; i<total; i++) {
                     b[i].showAccount();
                 }
