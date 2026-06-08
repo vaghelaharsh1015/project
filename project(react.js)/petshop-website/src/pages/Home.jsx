@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 import ProductCard from "../components/ProductCard";
 import { FaMoneyBillWave, FaAtom, FaSmile } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useCart } from "../CartContext";
 
 const services = [
   {
@@ -59,6 +60,7 @@ const sampleProducts = [
 ];
 
 export default function Home() {
+  const { addToCart } = useCart();
   return (
     <div className="bg-white">
       <Hero />
@@ -375,11 +377,13 @@ export default function Home() {
             <div key={product.id} className="bg-white flex flex-col text-left">
               {/* Product Frame with Light Border */}
               <div className="relative aspect-[4/5] border border-gray-200 p-4 flex items-center justify-center bg-white mb-3 overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="max-h-full max-w-full object-contain"
-                />
+                <Link to={`/shop/product/${product.id}`} className="w-full h-full flex items-center justify-center">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="max-h-full max-w-full object-contain hover:scale-105 transition-transform duration-300"
+                  />
+                </Link>
 
                 {/* Blue Circular Sale Badge */}
                 {product.sale && (
@@ -411,6 +415,15 @@ export default function Home() {
                   )}
                   <span>${product.price.toFixed(2)}</span>
                 </div>
+                <button 
+                  onClick={() => {
+                    addToCart({ ...product, quantity: 1 });
+                    alert(`${product.name} added to cart successfully!`);
+                  }}
+                  className="mt-3 w-full bg-[#222] hover:bg-[#8cc63f] text-white text-[10px] font-bold py-2.5 rounded-full uppercase tracking-wider transition-colors duration-300 cursor-pointer shadow-sm"
+                >
+                  Add To Cart
+                </button>
               </div>
             </div>
           ))}

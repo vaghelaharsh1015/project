@@ -1,20 +1,39 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { useCart } from '../CartContext';
 
 export default function ProductDetails() {
   const { id } = useParams();
   const [qty, setQty] = useState(1);
+  const { addToCart } = useCart();
   const [activeTab, setActiveTab] = useState('description');
 
-  const sampleProduct = {
-    id: id || 1,
-    name: 'Pawbits Joint Support Tablets for Dogs',
-    price: 134.00,
-    oldPrice: null,
-    sku: 'PET-KIB-0921',
-    category: 'Dog Food',
-    image: 'https://htmlbeans.com/html/petshop/images/img44.jpg',
+  const allProducts = [
+    { id: 1, name: "Pawbits Joint", price: 134.0, oldPrice: null, category: "Cats", image: "https://htmlbeans.com/html/petshop/images/img08.jpg", sku: "PET-001" },
+    { id: 2, name: "Vitamin K2", price: 28.0, oldPrice: null, category: "Dogs", image: "https://htmlbeans.com/html/petshop/images/img09.jpg", sku: "PET-002" },
+    { id: 3, name: "Maxxiflex+", price: 28.0, oldPrice: null, category: "Dogs", image: "https://htmlbeans.com/html/petshop/images/img10.jpg", sku: "PET-003" },
+    { id: 4, name: "Premier Pet+", price: 42.0, oldPrice: null, category: "Foods", image: "https://htmlbeans.com/html/petshop/images/img11.jpg", sku: "PET-004" },
+    { id: 5, name: "Calcium Pills", price: 30.0, oldPrice: null, category: "Foods", image: "https://htmlbeans.com/html/petshop/images/img12.jpg", sku: "PET-005" },
+    { id: 6, name: "Vitamin D3", price: 42.0, oldPrice: 45.0, category: "Dogs", image: "https://htmlbeans.com/html/petshop/images/img13.jpg", sku: "PET-006" },
+    { id: 7, name: "Pets Puriest", price: 28.0, oldPrice: null, category: "Dogs", image: "https://htmlbeans.com/html/petshop/images/img14.jpg", sku: "PET-007" },
+    { id: 8, name: "Nutri-Pooch", price: 58.0, oldPrice: 62.0, category: "Foods", image: "https://htmlbeans.com/html/petshop/images/img15.jpg", sku: "PET-008" },
+    { id: 9, name: "Yumove Dog", price: 45.0, oldPrice: null, category: "Dogs", image: "https://htmlbeans.com/html/petshop/images/img39.jpg", sku: "PET-009" }
+  ];
+
+  const foundProduct = allProducts.find(p => p.id === parseInt(id));
+
+  const sampleProduct = foundProduct ? {
+    ...foundProduct,
     description: 'Formulated directly with non-GMO proteins, real vegetables, and enriched functional lipids ensuring complete gut-flora stability and vibrant muscle building indices. Essential fatty acids work seamlessly to boost performance and build core resilience.'
+  } : {
+    id: id || 1,
+    name: 'Product Not Found',
+    price: 0.00,
+    oldPrice: null,
+    sku: 'N/A',
+    category: 'Unknown',
+    image: 'https://htmlbeans.com/html/petshop/images/img44.jpg',
+    description: 'Sorry, the product you are looking for does not exist.'
   };
 
   const sidebarFeatured = [
@@ -82,7 +101,13 @@ export default function ProductDetails() {
                       <button onClick={() => setQty(qty + 1)} className="w-8 h-8 flex items-center justify-center hover:bg-gray-50 text-gray-500 font-bold text-sm transition cursor-pointer select-none">+</button>
                     </div>
                   </div>
-                  <button className="bg-[#222] text-white hover:bg-[#8cc63f] text-[11px] font-bold px-7 py-2.5 transition duration-300 uppercase tracking-widest cursor-pointer shadow-2xs">Add To Cart</button>
+                  <button 
+                    onClick={() => {
+                      addToCart({ ...sampleProduct, quantity: qty });
+                      alert(`${sampleProduct.name} added to cart successfully!`);
+                    }}
+                    className="bg-[#222] text-white hover:bg-[#8cc63f] text-[11px] font-bold px-7 py-2.5 transition duration-300 uppercase tracking-widest cursor-pointer shadow-2xs"
+                  >Add To Cart</button>
                 </div>
 
                 <div className="text-[11px] text-gray-400 space-y-1.5 pt-6 border-t border-gray-100">

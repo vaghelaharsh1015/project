@@ -1,36 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useCart } from '../CartContext';
 
 export default function Cart() {
-  // Initial cart items data
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: "Pets Puriest",
-      price: 34.00,
-      quantity: 1,
-      image: "https://htmlbeans.com/html/petshop/images/img47.jpg"
-    },
-    {
-      id: 2,
-      name: "Nutri Vitamin+",
-      price: 34.00,
-      quantity: 1,
-      image: "https://htmlbeans.com/html/petshop/images/img48.jpg"
-    }
-  ]);
+  const { cart: cartItems, removeFromCart: removeItem, updateQuantity } = useCart();
 
   const [coupon, setCoupon] = useState("");
 
   // Handle quantity changes
   const handleQtyChange = (id, val) => {
     const numericVal = Math.max(1, parseInt(val) || 1);
-    setCartItems(cartItems.map(item => item.id === id ? { ...item, quantity: numericVal } : item));
-  };
-
-  // Remove item from cart
-  const removeItem = (id) => {
-    setCartItems(cartItems.filter(item => item.id !== id));
+    updateQuantity(id, numericVal);
   };
 
   // Calculate subtotal

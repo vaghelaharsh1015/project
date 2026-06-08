@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "../CartContext";
 
 const catalogProducts = [
   { id: 1, name: "Pawbits Joint", price: 134.0, oldPrice: null, category: "Cats", image: "https://htmlbeans.com/html/petshop/images/img08.jpg", sale: true, soldOut: false },
@@ -20,6 +21,7 @@ const featuredProducts = [
 ];
 
 export default function Shop() {
+  const { addToCart } = useCart();
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const categories = [
@@ -61,11 +63,13 @@ export default function Shop() {
                 
                 {/* Thin Gray Framed Product Image Container */}
                 <div className="relative aspect-[4/5] border border-gray-200 p-4 flex items-center justify-center bg-white mb-3.5 overflow-hidden">
-                  <img 
-                    src={product.image} 
-                    alt={product.name} 
-                    className="max-h-full max-w-full object-contain"
-                  />
+                  <Link to={`/shop/product/${product.id}`} className="w-full h-full flex items-center justify-center">
+                    <img 
+                      src={product.image} 
+                      alt={product.name} 
+                      className="max-h-full max-w-full object-contain hover:scale-105 transition-transform duration-300"
+                    />
+                  </Link>
                   
                   {/* Circular Blue Sale Tag Badge */}
                   {product.sale && (
@@ -92,6 +96,15 @@ export default function Shop() {
                   <div className="text-xs font-bold text-[#8cc63f]">
                     <span>${product.price.toFixed(2)}</span>
                   </div>
+                  <button 
+                    onClick={() => {
+                      addToCart({ ...product, quantity: 1 });
+                      alert(`${product.name} added to cart successfully!`);
+                    }}
+                    className="mt-3 w-full bg-[#222] hover:bg-[#8cc63f] text-white text-[10px] font-bold py-2.5 rounded-full uppercase tracking-wider transition-colors duration-300 cursor-pointer shadow-sm"
+                  >
+                    Add To Cart
+                  </button>
                 </div>
 
               </div>

@@ -14,8 +14,10 @@ import {
   FiMenu,
   FiX,
 } from "react-icons/fi";
+import { useAuth } from '../AuthContext';
 
 const Header = () => {
+  const { user } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
 
@@ -73,10 +75,17 @@ const Header = () => {
               </div>
             </div>
             <div className="flex items-center gap-6 ml-4">
-              <div className="flex items-center gap-2 cursor-pointer font-semibold text-sm">
-                <FiUser className="text-sky-500 text-lg" />
-                <span>Account</span>
-              </div>
+              {user ? (
+                <Link to="/profile" className="flex items-center gap-2 cursor-pointer hover:text-[#8cc63f] transition font-semibold text-sm">
+                  <FiUser className="text-sky-500 text-lg" />
+                  <span>{user.name}</span>
+                </Link>
+              ) : (
+                <Link to="/login" className="flex items-center gap-2 cursor-pointer hover:text-[#8cc63f] transition font-semibold text-sm">
+                  <FiUser className="text-sky-500 text-lg" />
+                  <span>Login</span>
+                </Link>
+              )}
               <Link to="/cart" className="flex items-center gap-2 cursor-pointer hover:text-[#8cc63f] transition font-semibold text-sm">
                 <FaShoppingCart className="text-sky-500 text-lg" />
                 <span>Cart</span>
@@ -217,10 +226,17 @@ const Header = () => {
                 <FaLinkedinIn size={12} />
              </div>
           </div>
-          <div className="flex items-center gap-3 text-sm text-gray-600 font-medium">
-            <FiUser className="text-sky-500 text-lg" />
-            <span>My Account</span>
-          </div>
+          {user ? (
+            <Link to="/profile" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 text-sm text-gray-600 font-medium hover:text-[#8cc63f] transition cursor-pointer">
+              <FiUser className="text-sky-500 text-lg" />
+              <span>{user.name}</span>
+            </Link>
+          ) : (
+            <Link to="/login" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 text-sm text-gray-600 font-medium hover:text-[#8cc63f] transition cursor-pointer">
+              <FiUser className="text-sky-500 text-lg" />
+              <span>Login</span>
+            </Link>
+          )}
           <div className="flex items-center gap-3 text-sm text-gray-600 font-medium">
             <FiMail className="text-sky-500 text-lg" />
             <span>petty@support.com</span>

@@ -14,30 +14,40 @@ import BlogDetails from '../src/pages/BlogDetails';
 import Contact from '../src/pages/Contact';
 import BlogStandard from '../src/pages/BlogStandard';
 import SingleBlog from '../src/pages/SingleBlog';
+import { CartProvider } from './CartContext';
+import { AuthProvider } from './AuthContext';
+import Login from '../src/pages/Login';
+import Profile from '../src/pages/Profile';
 
 function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen selection:bg-brand-primary selection:text-white">
-        <Header />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/shop" element={<Shop />} />
-            <Route path="/shop/product/:id" element={<ProductDetails />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/blog/:id" element={<BlogDetails />} />
-            <Route path="/blog-standard" element={<BlogStandard />} />
-            <Route path="/single-blog" element={<SingleBlog />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <AuthProvider>
+        <CartProvider>
+          <div className="flex flex-col min-h-screen selection:bg-brand-primary selection:text-white">
+            <Header />
+            <main className="flex-grow">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/gallery" element={<Gallery />} />
+                <Route path="/shop" element={<Shop />} />
+                <Route path="/shop/product/:id" element={<ProductDetails />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/blog/:id" element={<BlogDetails />} />
+                <Route path="/blog-standard" element={<BlogStandard />} />
+                <Route path="/single-blog" element={<SingleBlog />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/profile" element={<Profile />} />
+              </Routes>
+            </main>
+            <Footer />
+          </div>
+        </CartProvider>
+      </AuthProvider>
     </Router>
   );
 }
