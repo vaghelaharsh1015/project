@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../CartContext";
+import { toast } from "react-toastify";
 
 const catalogProducts = [
   { id: 1, name: "Pawbits Joint", price: 134.0, oldPrice: null, category: "Cats", image: "https://htmlbeans.com/html/petshop/images/img08.jpg", sale: true, soldOut: false },
@@ -99,7 +100,7 @@ export default function Shop() {
                   <button 
                     onClick={() => {
                       addToCart({ ...product, quantity: 1 });
-                      alert(`${product.name} added to cart successfully!`);
+                      toast.success(`${product.name} added to cart successfully!`);
                     }}
                     className="mt-3 w-full bg-[#222] hover:bg-[#8cc63f] text-white text-[10px] font-bold py-2.5 rounded-full uppercase tracking-wider transition-colors duration-300 cursor-pointer shadow-sm"
                   >

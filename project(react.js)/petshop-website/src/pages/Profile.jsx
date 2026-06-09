@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
+import { toast } from 'react-toastify';
 
 export default function Profile() {
   const { user, logout } = useAuth();
@@ -31,7 +32,11 @@ export default function Profile() {
         
         <div className="pt-10">
           <button 
-            onClick={() => { logout(); navigate('/'); }} 
+            onClick={() => { 
+              logout(); 
+              toast.info("Logged out successfully!");
+              navigate('/'); 
+            }} 
             className="bg-red-500 hover:bg-red-600 text-white font-bold text-xs px-10 py-3.5 rounded-full uppercase tracking-widest transition-all duration-300 cursor-pointer shadow-sm"
           >
             Logout

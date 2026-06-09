@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useCart } from '../CartContext';
+import { toast } from 'react-toastify';
 
 export default function ProductDetails() {
   const { id } = useParams();
   const [qty, setQty] = useState(1);
   const { addToCart } = useCart();
   const [activeTab, setActiveTab] = useState('description');
+
+  // Scroll to the top of the page when the component mounts or when the product ID changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   const allProducts = [
     { id: 1, name: "Pawbits Joint", price: 134.0, oldPrice: null, category: "Cats", image: "https://htmlbeans.com/html/petshop/images/img08.jpg", sku: "PET-001" },
@@ -104,7 +110,7 @@ export default function ProductDetails() {
                   <button 
                     onClick={() => {
                       addToCart({ ...sampleProduct, quantity: qty });
-                      alert(`${sampleProduct.name} added to cart successfully!`);
+                      toast.success(`${sampleProduct.name} added to cart successfully!`);
                     }}
                     className="bg-[#222] text-white hover:bg-[#8cc63f] text-[11px] font-bold px-7 py-2.5 transition duration-300 uppercase tracking-widest cursor-pointer shadow-2xs"
                   >Add To Cart</button>

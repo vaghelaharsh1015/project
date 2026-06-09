@@ -4,6 +4,7 @@ import ProductCard from "../components/ProductCard";
 import { FaMoneyBillWave, FaAtom, FaSmile } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useCart } from "../CartContext";
+import { toast } from "react-toastify";
 
 const services = [
   {
@@ -61,6 +62,24 @@ const sampleProducts = [
 
 export default function Home() {
   const { addToCart } = useCart();
+  const testimonialSlides = [
+    {
+      quote: "lagse var pn Aavse mja yaar ",
+      author: " - devayat khavad",
+    },
+    {
+      quote: "A Sparrow can never be a falcon..",
+      author: "- devayat khavad",
+    },
+    {
+      quote: "Finding eco-friendly cages and real organic salmon oil used to be very difficult. Petty has the best curated items with complete safety checks. Highly recommended for all loving pet owners!",
+      author: "- Alex Mercer -",
+    },
+  ];
+  const [currentSlide, setCurrentSlide] = React.useState(0);
+  const nextSlide = () => setCurrentSlide(currentSlide === testimonialSlides.length - 1 ? 0 : currentSlide + 1);
+  const prevSlide = () => setCurrentSlide(currentSlide === 0 ? testimonialSlides.length - 1 : currentSlide - 1);
+
   return (
     <div className="bg-white">
       <Hero />
@@ -418,7 +437,7 @@ export default function Home() {
                 <button 
                   onClick={() => {
                     addToCart({ ...product, quantity: 1 });
-                    alert(`${product.name} added to cart successfully!`);
+                    toast.success(`${product.name} added to cart successfully!`);
                   }}
                   className="mt-3 w-full bg-[#222] hover:bg-[#8cc63f] text-white text-[10px] font-bold py-2.5 rounded-full uppercase tracking-wider transition-colors duration-300 cursor-pointer shadow-sm"
                 >
@@ -508,36 +527,6 @@ export default function Home() {
       </section>
 
       {/* Testimonials Slider */}
-      {(() => {
-        const slides = [
-          {
-            quote:
-              "lagse var pn Aavse mja yaar ",
-            author: " - devayat khavad",
-          },
-          {
-            quote:
-              "A Sparrow can never be a falcon..",
-            author: "- devayat khavad",
-          },
-          {
-            quote:
-              "Finding eco-friendly cages and real organic salmon oil used to be very difficult. Petty has the best curated items with complete safety checks. Highly recommended for all loving pet owners!",
-            author: "- Alex Mercer -",
-          },
-        ];
-
-        const [current, setCurrent] = React.useState(0);
-
-        const nextSlide = () => {
-          setCurrent(current === slides.length - 1 ? 0 : current + 1);
-        };
-
-        const prevSlide = () => {
-          setCurrent(current === 0 ? slides.length - 1 : current - 1);
-        };
-
-        return (
           <section 
             className="text-white py-20 relative overflow-hidden bg-cover bg-center"
             style={{ backgroundImage: "url('https://htmlbeans.com/html/petshop/images/img22.jpg')" }}
@@ -568,12 +557,12 @@ export default function Home() {
                 {/* Active Review Quote Content */}
                 <div className="space-y-6 transition-all duration-500 ease-in-out transform">
                   <p className="text-gray-300 text-sm md:text-base leading-relaxed tracking-wide font-light max-w-2xl mx-auto italic">
-                    "{slides[current].quote}"
+                    "{testimonialSlides[currentSlide].quote}"
                   </p>
 
                   {/* Author Name */}
                   <h4 className="text-[#8cc63f] font-bold text-sm tracking-widest uppercase pt-2">
-                    {slides[current].author}
+                    {testimonialSlides[currentSlide].author}
                   </h4>
                 </div>
 
@@ -588,12 +577,12 @@ export default function Home() {
 
               {/* Bottom Navigation Dots Indicators */}
               <div className="flex justify-center items-center gap-2.5 mt-8">
-                {slides.map((_, index) => (
+                {testimonialSlides.map((_, index) => (
                   <span
                     key={index}
-                    onClick={() => setCurrent(index)}
+                    onClick={() => setCurrentSlide(index)}
                     className={`rounded-full inline-block cursor-pointer transition-all duration-300 ${
-                      current === index
+                      currentSlide === index
                         ? "w-3 h-3 bg-white"
                         : "w-2 h-2 bg-gray-600 hover:bg-gray-400"
                     }`}
@@ -602,10 +591,6 @@ export default function Home() {
               </div>
             </div>
           </section>
-          
-        );
-        
-      })()}
 
       {/* Blog Section */}
       <section className="py-20 bg-white">

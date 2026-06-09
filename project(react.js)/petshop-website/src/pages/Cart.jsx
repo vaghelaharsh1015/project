@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../CartContext';
+import { toast } from 'react-toastify';
 
 export default function Cart() {
   const { cart: cartItems, removeFromCart: removeItem, updateQuantity } = useCart();
@@ -62,7 +63,10 @@ export default function Cart() {
                       {/* Remove Button */}
                       <td className="p-4 text-center">
                         <button 
-                          onClick={() => removeItem(item.id)}
+                          onClick={() => {
+                            removeItem(item.id);
+                            toast.error(`${item.name} removed from cart!`);
+                          }}
                           className="text-gray-400 hover:text-red-500 font-bold text-sm transition cursor-pointer select-none"
                         >
                           ×

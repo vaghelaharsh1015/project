@@ -19,7 +19,7 @@ export default function BlogStandard() {
       >
         <div className="absolute inset-0 bg-black/20"></div>
         <h1 className="relative z-10 text-white text-4xl md:text-5xl font-bold tracking-wide drop-shadow-sm">
-          blog starder
+          Blog Standard
         </h1>
       </div>
 

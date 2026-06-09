@@ -9,6 +9,20 @@ import {
 } from "react-icons/fa";
 
 export default function About() {
+  const testimonialSlides = [
+    { quote: "lagse var pn Aavse mja yaar ", author: "- devayat khavad" },
+    {
+      quote: "A Sparrow can never be a falcon..",
+      author: "- devayat khavad",
+    },
+    {
+      quote:
+        "Finding eco-friendly cages and real organic salmon oil used to be very difficult. Petty has the best curated items with complete safety checks.",
+      author: "- Alex Mercer -",
+    },
+  ];
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   // Team members list
   const teamMembers = [
     {
@@ -116,21 +130,6 @@ export default function About() {
 
 
       {/* Testimonials Slider */}
-      {(() => {
-        const slides = [
-          { quote: "lagse var pn Aavse mja yaar ", author: "- devayat khavad" },
-          {
-            quote: "A Sparrow can never be a falcon..",
-            author: "- devayat khavad",
-          },
-          {
-            quote:
-              "Finding eco-friendly cages and real organic salmon oil used to be very difficult. Petty has the best curated items with complete safety checks.",
-            author: "- Alex Mercer -",
-          },
-        ];
-        const [current, setCurrent] = useState(0);
-        return (
           <section
             className="bg-[#2d2d2d] text-white py-20 relative overflow-hidden bg-cover bg-center"
             style={{
@@ -150,7 +149,7 @@ export default function About() {
               <div className="relative px-6 md:px-12 min-h-[120px] flex items-center justify-center">
                 <button
                   onClick={() =>
-                    setCurrent(current === 0 ? slides.length - 1 : current - 1)
+                    setCurrentSlide(currentSlide === 0 ? testimonialSlides.length - 1 : currentSlide - 1)
                   }
                   className="absolute left-0 top-1/2 -translate-y-1/2 text-white hover:text-[#8cc63f] font-light text-2xl transition cursor-pointer select-none p-2 z-20"
                 >
@@ -158,15 +157,15 @@ export default function About() {
                 </button>
                 <div className="space-y-4">
                   <p className="text-gray-300 text-sm md:text-base leading-relaxed italic max-w-2xl mx-auto">
-                    "{slides[current].quote}"
+                    "{testimonialSlides[currentSlide].quote}"
                   </p>
                   <h4 className="text-[#8cc63f] font-bold text-sm tracking-widest uppercase">
-                    {slides[current].author}
+                    {testimonialSlides[currentSlide].author}
                   </h4>
                 </div>
                 <button
                   onClick={() =>
-                    setCurrent(current === slides.length - 1 ? 0 : current + 1)
+                    setCurrentSlide(currentSlide === testimonialSlides.length - 1 ? 0 : currentSlide + 1)
                   }
                   className="absolute right-0 top-1/2 -translate-y-1/2 text-white hover:text-[#8cc63f] font-light text-2xl transition cursor-pointer select-none p-2 z-20"
                 >
@@ -174,18 +173,16 @@ export default function About() {
                 </button>
               </div>
               <div className="flex justify-center items-center gap-2 mt-6">
-                {slides.map((_, idx) => (
+                {testimonialSlides.map((_, idx) => (
                   <span
                     key={idx}
-                    onClick={() => setCurrent(idx)}
-                    className={`rounded-full inline-block cursor-pointer transition-all duration-300 ${current === idx ? "w-2.5 h-2.5 bg-white" : "w-1.5 h-1.5 bg-gray-600"}`}
+                    onClick={() => setCurrentSlide(idx)}
+                    className={`rounded-full inline-block cursor-pointer transition-all duration-300 ${currentSlide === idx ? "w-2.5 h-2.5 bg-white" : "w-1.5 h-1.5 bg-gray-600"}`}
                   ></span>
                 ))}
               </div>
             </div>
           </section>
-        );
-      })()}
 
       {/* Our Team Section */}
       <section className="py-20 bg-white">
