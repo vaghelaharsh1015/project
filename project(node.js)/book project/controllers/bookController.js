@@ -17,11 +17,11 @@ const getBookById = async (req, res) => {
         }
         res.status(200).json(book);
     } catch (error) {
-        // Catches invalid ObjectId formats
         res.status(400).json({ message: 'Invalid Book ID', error: error.message });
     }
 };
 
+//crete book
 const createBook = async (req, res) => {
     try {
         const { title, author, price, inStock } = req.body;
@@ -36,10 +36,39 @@ const createBook = async (req, res) => {
     }
 };
 
+// update book
+const updateBook = async (req, res) => {
+    try {
+        const updatedBook = await Book.findByIdAndUpdate(req.params.id, req.body, {
+            new: true,
+            runValidators: true
+        });
+        if (!updatedBook) {
+            return res.status(404).json({ message: 'Book not found' });
+        }
+        res.status(200).json(updatedBook);
+    } catch (error) {
+        res.status(400).json({ message: 'Error updating book', error: error.message });
+    }
+};
 
+// book delet 
+const deleteBook = async (req, res) => {
+    try {
+        const deletedBook = await Book.findByIdAndDelete(req.params.id);
+        if (!deletedBook) {
+            return res.status(404).json({ message: 'Book not found' });
+        }
+        res.status(200).json({ message: 'Book successfully deleted' });
+    } catch (error) {
+        res.status(400).json({ message: 'Error deleting book', error: error.message });
+    }
+};
 
 module.exports = {
     getBooks,
     getBookById,
     createBook,
+    updateBook,   
+    deleteBook,   
 };
