@@ -1,7 +1,5 @@
 const Book = require('../models/Book');
 
-// @desc    Get all books
-// @route   GET /api/books
 const getBooks = async (req, res) => {
     try {
         const books = await Book.find();
@@ -11,8 +9,6 @@ const getBooks = async (req, res) => {
     }
 };
 
-// @desc    Get single book
-// @route   GET /api/books/:id
 const getBookById = async (req, res) => {
     try {
         const book = await Book.findById(req.params.id);
@@ -26,8 +22,6 @@ const getBookById = async (req, res) => {
     }
 };
 
-// @desc    Create a book
-// @route   POST /api/books
 const createBook = async (req, res) => {
     try {
         const { title, author, price, inStock } = req.body;
@@ -42,7 +36,7 @@ const createBook = async (req, res) => {
     }
 };
 
-// We can add updateBook and deleteBook here as well.
+
 
 module.exports = {
     getBooks,

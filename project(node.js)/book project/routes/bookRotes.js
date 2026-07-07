@@ -4,8 +4,7 @@ const {
     getBooks,
     getBookById,
     createBook,
-    // updateBook,
-    // deleteBook
+
 } = require('../controllers/bookController');
 
 // GET all books
